@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KindleHelperCommand", "KindleHelperCommand\KindleHelperCommand.csproj", "{52A8A6B6-8106-49B7-AF3A-54FBF2F1595D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libZhuishu", "libZhuishu\libZhuishu.csproj", "{326650CB-B2EF-4DB4-990C-95C1E0C5E322}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52A8A6B6-8106-49B7-AF3A-54FBF2F1595D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52A8A6B6-8106-49B7-AF3A-54FBF2F1595D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52A8A6B6-8106-49B7-AF3A-54FBF2F1595D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52A8A6B6-8106-49B7-AF3A-54FBF2F1595D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{326650CB-B2EF-4DB4-990C-95C1E0C5E322}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{326650CB-B2EF-4DB4-990C-95C1E0C5E322}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{326650CB-B2EF-4DB4-990C-95C1E0C5E322}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{326650CB-B2EF-4DB4-990C-95C1E0C5E322}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
