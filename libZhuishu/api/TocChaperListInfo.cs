@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace libZhuishu
 {
-
-
-    public class MixTocInfo
+    public class TocChaperListInfo
     {
         public string _id;
-        public string book;
-        public string chaptersUpdated;
-        public string updated;
+        public string name;
+        public string link;
         public tocChaperInfo[] chapters;
+        public string updated;
     }
 }

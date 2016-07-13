@@ -44,9 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="api\ChapterInfo.cs" />
     <Compile Include="api\HttpHelper.cs" />
     <Compile Include="api\MixTocInfo.cs" />
     <Compile Include="api\QueryBookInfo.cs" />
+    <Compile Include="api\tocChaperInfo.cs" />
+    <Compile Include="api\TocChaperListInfo.cs" />
+    <Compile Include="api\TocSummmaryInfo.cs" />
     <Compile Include="LibZhuiShu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -54,7 +58,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="doc\apidoc.txt" />
+    <Content Include="api\doc\apidoc.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
