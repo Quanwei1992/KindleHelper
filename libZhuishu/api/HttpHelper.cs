@@ -37,6 +37,12 @@ namespace libZhuishu
         }
 
 
+
+        public static void AsyncGET(Action<string> callback, string url, params KeyValuePair<string, string>[] args)
+        {
+
+        }
+
         public static JObject GET_JsonObject(string url, params KeyValuePair<string, string>[] args)
         {
             string result = GET(url, args);
