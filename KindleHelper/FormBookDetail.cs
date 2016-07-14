@@ -177,8 +177,9 @@ namespace KindleHelper
             for (int i = 0; i < chapters.Length; i++) {
                 if (backgroundworker_download.CancellationPending) return;    
                 var chapter = chapters[i];
+                float progress = (float)(i + 1) / (float)chapters.Length;
                 string info = string.Format("正在下载:{0} {1}/{2} {3:F2}%", chapter.title, i + 1, chapters.Length,
-                    (i + 1) / (float)(chapters.Length));
+                   progress * 100);
                 backgroundworker_download.ReportProgress(i, info);
                 var chapterInfo = LibZhuiShu.getChapter(chapter.link);
                 if (chapterInfo != null) {
@@ -193,8 +194,9 @@ namespace KindleHelper
             for (int i = 0; i < chaperInfoList.Count; i++) {
                 if (backgroundworker_download.CancellationPending) return;
                 var chapterInfo = chaperInfoList[i];
+                float progress = (float)(i + 1) / (float)chaperInfoList.Count;
                 string info = string.Format("正在生成TXT:{0} {1}/{2} {3:F2}%", chapterInfo.title, i + 1, chaperInfoList.Count,
-                    (i + 1) / (float)(chaperInfoList.Count)*100);
+                    progress*100);
                 backgroundworker_download.ReportProgress(i, info);
                 txt += chapterInfo.title + "\r\n";
                 txt += chapterInfo.body + "\r\n";
