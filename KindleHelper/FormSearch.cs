@@ -22,7 +22,13 @@ namespace KindleHelper
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-
+            FormSearchResult form_result = new FormSearchResult();
+            var results = LibZhuiShu.fuzzySearch(textbox_search.Text, 0, 100);
+            if (results == null || results.Length < 1) {
+                MessageBox.Show("没有找到:" + textbox_search.Text);
+                return;
+            }
+            form_result.ShowResult(results);
         }
 
         private void textbox_search_TextChanged(object sender, EventArgs e)
@@ -33,6 +39,8 @@ namespace KindleHelper
             if (words != null && words.Length > 0) {
                 listbox_autocomplate.Items.AddRange(words);
                 listbox_autocomplate.Visible = true;
+            } else {
+                listbox_autocomplate.Visible = false;
             }
         }
 
@@ -40,6 +48,7 @@ namespace KindleHelper
         {
             textbox_search.Text = listbox_autocomplate.SelectedItem.ToString();
             listbox_autocomplate.Visible = false;
+            btn_search_Click(sender,e);
         }
     }
 }

@@ -27,32 +27,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listview_result = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
-            // listView1
+            // listview_result
             // 
-            this.listView1.Location = new System.Drawing.Point(33, 91);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(490, 230);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.List;
+            this.listview_result.FullRowSelect = true;
+            this.listview_result.Location = new System.Drawing.Point(12, 12);
+            this.listview_result.Name = "listview_result";
+            this.listview_result.Size = new System.Drawing.Size(860, 527);
+            this.listview_result.TabIndex = 0;
+            this.listview_result.UseCompatibleStateImageBehavior = false;
+            this.listview_result.View = System.Windows.Forms.View.Details;
             // 
             // FormSearchResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 551);
-            this.Controls.Add(this.listView1);
+            this.ClientSize = new System.Drawing.Size(884, 551);
+            this.Controls.Add(this.listview_result);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(900, 590);
+            this.MinimumSize = new System.Drawing.Size(900, 590);
             this.Name = "FormSearchResult";
-            this.Text = "FormSearchResult";
+            this.Text = "搜索结果";
+            this.Load += new System.EventHandler(this.FormSearchResult_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listview_result;
     }
 }
