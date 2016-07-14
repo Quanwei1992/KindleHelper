@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBookDetail));
             this.picturebox_cover = new System.Windows.Forms.PictureBox();
             this.label_name = new System.Windows.Forms.Label();
             this.label_baseinfo = new System.Windows.Forms.Label();
@@ -230,6 +231,7 @@
             this.Controls.Add(this.label_baseinfo);
             this.Controls.Add(this.label_name);
             this.Controls.Add(this.picturebox_cover);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(527, 577);
             this.MinimumSize = new System.Drawing.Size(527, 577);
