@@ -47,7 +47,7 @@ namespace libZhuishu
             var ret = HttpHelper.GET_JsonObject(host);
             var ok = ret["ok"].ToObject<bool>();
             if (ok) {
-                var info = ret.ToObject<MixTocInfo>();
+                var info = ret["mixToc"].ToObject<MixTocInfo>();
                 return info;
             }
             return null;

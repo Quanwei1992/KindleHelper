@@ -47,11 +47,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(31, 48);
+            this.label1.Location = new System.Drawing.Point(41, 53);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 40);
+            this.label1.Size = new System.Drawing.Size(506, 40);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Welcome";
+            this.label1.Text = "欢迎使用小说下载器,请输入小说名字";
             // 
             // textbox_search
             // 
@@ -60,7 +60,6 @@
             this.textbox_search.Size = new System.Drawing.Size(205, 21);
             this.textbox_search.TabIndex = 3;
             this.textbox_search.TextChanged += new System.EventHandler(this.textbox_search_TextChanged);
-            
             // 
             // listbox_autocomplate
             // 

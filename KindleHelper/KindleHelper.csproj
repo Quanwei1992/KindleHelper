@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormBookDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBookDetail.Designer.cs">
+      <DependentUpon>FormBookDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,13 +64,25 @@
     <Compile Include="FormSearchResult.Designer.cs">
       <DependentUpon>FormSearchResult.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTocList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTocList.Designer.cs">
+      <DependentUpon>FormTocList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormBookDetail.resx">
+      <DependentUpon>FormBookDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSearch.resx">
       <DependentUpon>FormSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSearchResult.resx">
       <DependentUpon>FormSearchResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTocList.resx">
+      <DependentUpon>FormTocList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

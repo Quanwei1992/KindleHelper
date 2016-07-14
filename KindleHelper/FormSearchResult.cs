@@ -13,6 +13,9 @@ namespace KindleHelper
 {
     public partial class FormSearchResult : Form
     {
+
+        private QueryBookInfo[] cacheResults;
+
         public FormSearchResult()
         {
             InitializeComponent();
@@ -55,6 +58,7 @@ namespace KindleHelper
             }
             listview_result.EndUpdate();
             this.Show();
+            cacheResults = results;
         }
 
 
@@ -64,6 +68,16 @@ namespace KindleHelper
                 return (wordCount / 10000) + " 万";
             }
             return wordCount.ToString();
+        }
+
+        private void listview_result_DoubleClick(object sender, EventArgs e)
+        {
+            var lv = listview_result;
+            if (lv.SelectedIndices.Count > 0) {
+                var index = lv.SelectedIndices[0];
+                var detailForm = new FormBookDetail();
+                detailForm.ShowBook(cacheResults[index]);
+            }
         }
     }
 }

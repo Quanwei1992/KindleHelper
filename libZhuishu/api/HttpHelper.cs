@@ -8,7 +8,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Converters;
-
+using System.Drawing;
 namespace libZhuishu
 {
     public class HttpHelper
@@ -55,5 +55,7 @@ namespace libZhuishu
             JArray array = JArray.Parse(result);
             return array;
         }
+
+
     }
 }
