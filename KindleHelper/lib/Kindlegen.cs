@@ -175,6 +175,9 @@ namespace KindleHelper
             Proc = Process.Start(p);//调用外部程序
             Proc.WaitForExit();
             if (File.Exists("./tmp/book.mobi")) {
+                if (File.Exists(savePath)) {
+                    File.Delete(savePath);
+                }
                 File.Move("./tmp/book.mobi", savePath);
             }
             Directory.Delete("./tmp", true);
