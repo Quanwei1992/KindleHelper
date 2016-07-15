@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using libZhuishu;
 using System.Diagnostics;
-
+using System.IO;
 namespace KindleHelper
 {
     public partial class FormSearch : Form
@@ -49,6 +49,11 @@ namespace KindleHelper
             textbox_search.Text = listbox_autocomplate.SelectedItem.ToString();
             listbox_autocomplate.Visible = false;
             btn_search_Click(sender,e);
+        }
+
+        private void FormSearch_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

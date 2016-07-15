@@ -175,12 +175,14 @@
             // 
             // listview_chapers
             // 
+            this.listview_chapers.FullRowSelect = true;
             this.listview_chapers.Location = new System.Drawing.Point(21, 385);
             this.listview_chapers.Name = "listview_chapers";
             this.listview_chapers.Size = new System.Drawing.Size(478, 141);
             this.listview_chapers.TabIndex = 14;
             this.listview_chapers.UseCompatibleStateImageBehavior = false;
             this.listview_chapers.View = System.Windows.Forms.View.Details;
+            this.listview_chapers.DoubleClick += new System.EventHandler(this.listview_chapers_DoubleClick);
             // 
             // progressbar_download
             // 

@@ -181,13 +181,19 @@ namespace KindleHelper
                 string info = string.Format("正在下载:{0} {1}/{2} {3:F2}%", chapter.title, i + 1, chapters.Length,
                    progress * 100);
                 backgroundworker_download.ReportProgress(i, info);
-                var chapterInfo = LibZhuiShu.getChapter(chapter.link);
-                if (chapterInfo != null) {
-                    chaperInfoList.Add(chapterInfo);
-                } else {
-                    MessageBox.Show("下载失败:" + chapter.title);
+                try {
+                    var chapterInfo = LibZhuiShu.getChapter(chapter.link);
+                    if (chapterInfo != null) {
+                        chaperInfoList.Add(chapterInfo);
+                    } else {
+                        MessageBox.Show("下载失败:" + chapter.title);
+                        return;
+                    }
+                } catch (Exception exc) {
+                    MessageBox.Show("下载失败,请切换书源后重试:" + exc);
                     return;
                 }
+                
             }
             backgroundworker_download.ReportProgress(chapters.Length, "正在生成电子书请稍后....");
             string ext = Path.GetExtension(savePath);
@@ -215,6 +221,15 @@ namespace KindleHelper
             if (e.UserState != null) {
                 label_downloadinfo.Text = e.UserState.ToString();
             }     
+        }
+
+        private void listview_chapers_DoubleClick(object sender, EventArgs e)
+        {
+            if (listview_chapers.SelectedIndices.Count > 0) {
+                int index = listview_chapers.SelectedIndices[0];
+                var chapter = mChapers[index];
+                System.Diagnostics.Process.Start(chapter.link);
+            }
         }
     }
 }

@@ -155,29 +155,30 @@ namespace KindleHelper
         static void loadTemplates()
         {
             if (tplIsLoaded) return;
-            tpl_cover = File.ReadAllText("./tpl/tpl_cover.html");
-            tpl_book_toc = File.ReadAllText("./tpl/tpl_book_toc.html");
-            tpl_chapter = File.ReadAllText("./tpl/tpl_chapter.html");
-            tpl_content = File.ReadAllText("./tpl/tpl_content.opf");
-            tpl_style = File.ReadAllText("./tpl/tpl_style.css");
-            tpl_toc = File.ReadAllText("./tpl/tpl_toc.ncx");
+            tpl_cover = File.ReadAllText("./tpls/tpl_cover.html");
+            tpl_book_toc = File.ReadAllText("./tpls/tpl_book_toc.html");
+            tpl_chapter = File.ReadAllText("./tpls/tpl_chapter.html");
+            tpl_content = File.ReadAllText("./tpls/tpl_content.opf");
+            tpl_style = File.ReadAllText("./tpls/tpl_style.css");
+            tpl_toc = File.ReadAllText("./tpls/tpl_toc.ncx");
             tplIsLoaded = true;
         }
 
         static void gen(string savePath)
         {
-            string binPath = "./bin/kindlegen.exe";
+            string binPath = Directory.GetCurrentDirectory() + "/bin/kindlegen.exe";
             string param = "content.opf -c1 -o book.mobi";
             ProcessStartInfo p = null;
             Process Proc;
             p = new ProcessStartInfo(binPath, param);
-            p.WorkingDirectory = "./tmp/";
+            p.WorkingDirectory = Directory.GetCurrentDirectory() + "/tmp";
             //p.WindowStyle = ProcessWindowStyle.Hidden;//在调用外部exe程序的时候，控制台窗口不弹出
             Proc = Process.Start(p);//调用外部程序
             Proc.WaitForExit();
             if (File.Exists("./tmp/book.mobi")) {
                 File.Move("./tmp/book.mobi", savePath);
             }
+            Directory.Delete("./tmp", true);
         }
     }
 }
