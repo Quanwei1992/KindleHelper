@@ -53,7 +53,6 @@ namespace KindleHelper
 
         private void FormSearch_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

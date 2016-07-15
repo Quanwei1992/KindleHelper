@@ -166,13 +166,12 @@ namespace KindleHelper
 
         static void gen(string savePath)
         {
-            string binPath = Directory.GetCurrentDirectory() + "/bin/kindlegen.exe";
+            string binPath = Directory.GetCurrentDirectory() + "/tools/kindlegen.exe";
             string param = "content.opf -c1 -o book.mobi";
             ProcessStartInfo p = null;
             Process Proc;
             p = new ProcessStartInfo(binPath, param);
             p.WorkingDirectory = Directory.GetCurrentDirectory() + "/tmp";
-            //p.WindowStyle = ProcessWindowStyle.Hidden;//在调用外部exe程序的时候，控制台窗口不弹出
             Proc = Process.Start(p);//调用外部程序
             Proc.WaitForExit();
             if (File.Exists("./tmp/book.mobi")) {
