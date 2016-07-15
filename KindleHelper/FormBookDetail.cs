@@ -131,7 +131,7 @@ namespace KindleHelper
             }
 
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "文本文件（*.txt）|*.txt|Kindel（*.azw3）|*.azw3";
+            sfd.Filter = "文本文件（*.txt）|*.txt|Kindel（*.mobi）|*.mobi";
             sfd.FilterIndex = 0;
             sfd.FileName = mBook.title;
             sfd.RestoreDirectory = true;
@@ -189,25 +189,18 @@ namespace KindleHelper
                     return;
                 }
             }
-            string txt = "";
-            backgroundworker_download.ReportProgress(0);
-            for (int i = 0; i < chaperInfoList.Count; i++) {
-                if (backgroundworker_download.CancellationPending) return;
-                var chapterInfo = chaperInfoList[i];
-                float progress = (float)(i + 1) / (float)chaperInfoList.Count;
-                string info = string.Format("正在生成TXT:{0} {1}/{2} {3:F2}%", chapterInfo.title, i + 1, chaperInfoList.Count,
-                    progress*100);
-                backgroundworker_download.ReportProgress(i, info);
-                txt += chapterInfo.title + "\r\n";
-                txt += chapterInfo.body + "\r\n";
+            backgroundworker_download.ReportProgress(chapters.Length, "正在生成电子书请稍后....");
+            string ext = Path.GetExtension(savePath);
+            Book book = new Book();
+            book.name = mBook.title;
+            book.author = mBook.author;
+            book.id = mBook._id;
+            book.chapters = chaperInfoList.ToArray();
+            if (ext.ToLower() == ".txt") {
+                Kindlegen.book2Txt(book,savePath);
+            } else if (ext.ToLower() == ".mobi") {
+                Kindlegen.book2Mobi(book, savePath);
             }
-
-            string saveDir = Path.GetDirectoryName(savePath);
-            if (!Directory.Exists(saveDir)) {
-                Directory.CreateDirectory(saveDir);
-            }
-            if (backgroundworker_download.CancellationPending) return;
-            File.WriteAllText(savePath, txt);
             MessageBox.Show("下载完成,文件保存在:" + savePath);
         }
 
