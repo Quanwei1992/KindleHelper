@@ -35,13 +35,19 @@ namespace KindleHelper
         {
             if (string.IsNullOrWhiteSpace(textbox_search.Text)) return;
             listbox_autocomplate.Items.Clear();
-            var words = LibZhuiShu.autoComplate(textbox_search.Text);
-            if (words != null && words.Length > 0) {
-                listbox_autocomplate.Items.AddRange(words);
-                listbox_autocomplate.Visible = true;
-            } else {
-                listbox_autocomplate.Visible = false;
-            }
+            RunAsync(()=> {
+                var words = LibZhuiShu.autoComplate(textbox_search.Text);
+                RunInMainthread(()=> {
+                    if (words != null && words.Length > 0) {
+                        listbox_autocomplate.Items.AddRange(words);
+                        listbox_autocomplate.Visible = true;
+                    } else {
+                        listbox_autocomplate.Visible = false;
+                    }
+                });
+            });
+
+
         }
 
         private void listbox_autocomplate_SelectedValueChanged(object sender, EventArgs e)
@@ -54,5 +60,21 @@ namespace KindleHelper
         private void FormSearch_Load(object sender, EventArgs e)
         {
         }
+
+
+        void RunAsync(Action action)
+        {
+            ((Action)(delegate () {
+                action?.Invoke();
+            })).BeginInvoke(null, null);
+        }
+
+        void RunInMainthread(Action action)
+        {
+            this.BeginInvoke((Action)(delegate () {
+                action?.Invoke();
+            }));
+        }
+
     }
 }
