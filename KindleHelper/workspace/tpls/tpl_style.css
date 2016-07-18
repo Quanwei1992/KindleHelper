@@ -2,21 +2,15 @@
 /*  此css由EasyPub自动生成  */
 /*  部分参考老牛中文样式  */
 
-@font-face {
-      font-family: "easypub";
-      src: url(res:///system/fonts/DroidSansFallback.ttf),
-           url(res:///ebook/fonts/../../system/fonts/DroidSansFallback.ttf);
-}
+
 
 body { 
-      font-family: "easypub";
       padding: 0;
       orphans: 0;
       widows: 0;
 }
 
 p { 
-      font-family: "easypub";
       margin-left: 0;
       margin-right: 0;
       orphans: 0;
@@ -32,6 +26,7 @@ div.centeredimage {
 
 img.attpic {
       border: 1px solid #000000;
+      max-width: 100%;
       margin: 0;
 }
 
