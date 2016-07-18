@@ -140,7 +140,7 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(593, 349);
             this.Name = "FormSearch";
-            this.Text = "小王子小说下载器(txt,mobi) V1.0";
+            this.Text = "Kindle小说下载器(txt,mobi) V1.0";
             this.Load += new System.EventHandler(this.FormSearch_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
