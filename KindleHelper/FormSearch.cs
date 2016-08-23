@@ -59,6 +59,7 @@ namespace KindleHelper
 
         private void FormSearch_Load(object sender, EventArgs e)
         {
+            this.Text += " V" + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
 

@@ -87,7 +87,7 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(593, 349);
             this.Name = "FormSearch";
-            this.Text = "Kindle小说下载器(txt,mobi) V1.0";
+            this.Text = "Kindle小说下载器(txt,mobi)";
             this.Load += new System.EventHandler(this.FormSearch_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
