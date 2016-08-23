@@ -32,12 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textbox_search = new System.Windows.Forms.TextBox();
             this.listbox_autocomplate = new System.Windows.Forms.ListBox();
-            this.label_donate = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_search
@@ -80,58 +74,11 @@
             this.listbox_autocomplate.Visible = false;
             this.listbox_autocomplate.SelectedValueChanged += new System.EventHandler(this.listbox_autocomplate_SelectedValueChanged);
             // 
-            // label_donate
-            // 
-            this.label_donate.AutoSize = true;
-            this.label_donate.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_donate.Location = new System.Drawing.Point(12, 267);
-            this.label_donate.Name = "label_donate";
-            this.label_donate.Size = new System.Drawing.Size(94, 21);
-            this.label_donate.TabIndex = 5;
-            this.label_donate.Text = "捐助本应用:";
-            // 
-            // label2
-            // 
-            this.label2.AutoEllipsis = true;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(12, 301);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(545, 40);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "    如果您愿意花10块钱请我喝一杯咖啡的话，请用手机扫描二维码即可通过支付宝或者\r\n微信直接向我捐款哦。";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 358);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(233, 227);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.InitialImage = null;
-            this.pictureBox2.Location = new System.Drawing.Point(324, 358);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(233, 227);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
-            // 
             // FormSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 602);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label_donate);
+            this.ClientSize = new System.Drawing.Size(577, 310);
             this.Controls.Add(this.listbox_autocomplate);
             this.Controls.Add(this.textbox_search);
             this.Controls.Add(this.label1);
@@ -142,8 +89,6 @@
             this.Name = "FormSearch";
             this.Text = "Kindle小说下载器(txt,mobi) V1.0";
             this.Load += new System.EventHandler(this.FormSearch_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,9 +99,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textbox_search;
         private System.Windows.Forms.ListBox listbox_autocomplate;
-        private System.Windows.Forms.Label label_donate;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
