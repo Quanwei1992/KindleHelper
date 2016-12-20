@@ -52,7 +52,9 @@ namespace KindleHelper
             }
 
             listview_toc.EndUpdate();
+            PingToc();
             this.Show();
+            
         }
 
         private void listview_toc_DoubleClick(object sender, EventArgs e)
@@ -61,6 +63,63 @@ namespace KindleHelper
                 mCallback(listview_toc.SelectedIndices[0]-1);
                 this.Close();
             }
+        }
+
+
+        void PingToc()
+        {
+            foreach (var toc in mTocs)
+            {
+                RunAsync(() => {
+                System.Diagnostics.Stopwatch st = new System.Diagnostics.Stopwatch();
+                st.Start();
+                try
+                {
+
+                    HttpHelper.GET(toc.link);
+
+                    //toc.link;
+                }
+                catch (Exception ex)
+                {
+
+                }
+                st.Stop();
+                System.Diagnostics.Debug.WriteLine(toc.name + "  " + st.ElapsedMilliseconds + " ms");
+                RunInMainthread(()=> {
+                    var item = listview_toc.FindItemWithText(toc.name);
+                    item.Text = toc.name + "(" + st.ElapsedMilliseconds + " ms)";
+                });
+                });
+
+
+            }
+        }
+
+        void RunAsync(Action action)
+        {
+            try
+            {
+                ((Action)(delegate ()
+                {
+                    action?.Invoke();
+                })).BeginInvoke(null, null);
+            }
+            catch (Exception e) { }
+
+        }
+
+        void RunInMainthread(Action action)
+        {
+            try
+            {
+                this.BeginInvoke((Action)(delegate ()
+                {
+                    action?.Invoke();
+                }));
+            }
+            catch (Exception e) { }
+
         }
     }
 }

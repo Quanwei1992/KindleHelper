@@ -89,6 +89,7 @@
       <DependentUpon>FormTocList.cs</DependentUpon>
     </Compile>
     <Compile Include="lib\Book.cs" />
+    <Compile Include="lib\BookDownloader.cs" />
     <Compile Include="lib\Kindlegen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
