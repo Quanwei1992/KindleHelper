@@ -175,40 +175,34 @@ namespace KindleHelper
             string savePath = e.Argument.ToString();
             List<ChapterInfo> chaperInfoList = new List<ChapterInfo>();
             for (int i = 0; i < chapters.Length; i++) {
-                if (backgroundworker_download.CancellationPending) return;    
+                if (backgroundworker_download.CancellationPending) return;
                 var chapter = chapters[i];
                 float progress = (float)(i + 1) / (float)chapters.Length;
                 string info = string.Format("正在下载:{0} {1}/{2} {3:F2}%", chapter.title, i + 1, chapters.Length,
                    progress * 100);
                 backgroundworker_download.ReportProgress(i, info);
 
-                while (true)
-                {
+                while (true) {
                     bool downloadSucess = false;
-                    for (int j = 0; j < 3; j++)
-                    {
-                        try
-                        {
+                    for (int j = 0; j < 3; j++) {
+                        try {
                             var chapterInfo = LibZhuiShu.getChapter(chapter.link);
-                            if (chapterInfo != null)
-                            {
+                            if (chapterInfo != null) {
                                 chaperInfoList.Add(chapterInfo);
                                 downloadSucess = true;
                                 break;
                             }
-                        }
-                        catch (Exception exc){}
+                        } catch (Exception exc) { }
                     }
                     if (!downloadSucess) {
-                        var result = MessageBox.Show("章节 " + chapter.title + " 下载失败,是否重试?","下载失败",MessageBoxButtons.YesNo);
+                        var result = MessageBox.Show("章节 " + chapter.title + " 下载失败,是否重试?", "下载失败", MessageBoxButtons.YesNo);
                         if (result != DialogResult.Yes) {
                             return;
-                        }       
+                        }
+                    } else {
+                        break;
                     }
                 }
-                
-
-                
             }
             backgroundworker_download.ReportProgress(chapters.Length, "正在生成电子书请稍后....");
             string ext = Path.GetExtension(savePath);
