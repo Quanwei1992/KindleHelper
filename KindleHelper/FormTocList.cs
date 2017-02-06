@@ -80,7 +80,7 @@ namespace KindleHelper
 
                     //toc.link;
                 }
-                catch (Exception ex)
+                catch
                 {
 
                 }

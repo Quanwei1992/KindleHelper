@@ -184,6 +184,7 @@ namespace KindleHelper
 
                 while (true) {
                     bool downloadSucess = false;
+                    string errMsg = "";
                     for (int j = 0; j < 3; j++) {
                         try {
                             var chapterInfo = LibZhuiShu.getChapter(chapter.link);
@@ -192,13 +193,23 @@ namespace KindleHelper
                                 downloadSucess = true;
                                 break;
                             }
-                        } catch (Exception exc) { }
+                        } catch(Exception ex) {
+                            errMsg = ex.Message;
+                        }
                     }
                     if (!downloadSucess) {
-                        var result = MessageBox.Show("章节 " + chapter.title + " 下载失败,是否重试?", "下载失败", MessageBoxButtons.YesNo);
-                        if (result != DialogResult.Yes) {
+                        var result = MessageBox.Show(errMsg, "章节 " + chapter.title + " 下载失败", MessageBoxButtons.AbortRetryIgnore);
+                        if (result == DialogResult.Abort) {
                             return;
+                        } else if (result == DialogResult.Ignore) {
+                            var emptyChaper = new ChapterInfo();
+                            emptyChaper.title = chapter.title;
+                            emptyChaper.body = "本章下载失败了，失败原因:\n " + errMsg;
+                            chaperInfoList.Add(emptyChaper);
+                            downloadSucess = true;
+                            break;
                         }
+
                     } else {
                         break;
                     }

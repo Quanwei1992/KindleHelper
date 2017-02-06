@@ -52,6 +52,8 @@ namespace KindleHelper
 
         private void listbox_autocomplate_SelectedValueChanged(object sender, EventArgs e)
         {
+            if (listbox_autocomplate.SelectedItem == null) return;
+
             textbox_search.Text = listbox_autocomplate.SelectedItem.ToString();
             listbox_autocomplate.Visible = false;
             btn_search_Click(sender,e);
