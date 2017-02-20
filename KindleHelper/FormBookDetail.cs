@@ -131,7 +131,7 @@ namespace KindleHelper
             }
 
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "文本文件（*.txt）|*.txt|Kindel（*.mobi）|*.mobi";
+            sfd.Filter = "Kindel（*.mobi）|*.mobi|文本文件（*.txt）|*.txt";
             sfd.FilterIndex = 0;
             sfd.FileName = mBook.title;
             sfd.RestoreDirectory = true;
