@@ -65,7 +65,9 @@ namespace libZhuishu
             List<TocSummmaryInfo> infoList = new List<TocSummmaryInfo>();
             foreach (var summray in ret) {
                 TocSummmaryInfo info = summray.ToObject<TocSummmaryInfo>();
-                infoList.Add(info);
+                if (info.name != "优质书源") {
+                    infoList.Add(info);
+                }       
             }
             return infoList.ToArray();
         }
