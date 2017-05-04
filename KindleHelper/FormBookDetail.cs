@@ -189,6 +189,7 @@ namespace KindleHelper
                         try {
                             var chapterInfo = LibZhuiShu.getChapter(chapter.link);
                             if (chapterInfo != null) {
+                                chapterInfo.title = chapter.title;
                                 chaperInfoList.Add(chapterInfo);
                                 downloadSucess = true;
                                 break;
