@@ -45,7 +45,14 @@
             this.progressbar_download = new System.Windows.Forms.ProgressBar();
             this.label_downloadinfo = new System.Windows.Forms.Label();
             this.backgroundworker_download = new System.ComponentModel.BackgroundWorker();
+            this.btnDownloadParts = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtFrom = new System.Windows.Forms.NumericUpDown();
+            this.txtTo = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.picturebox_cover)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFrom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTo)).BeginInit();
             this.SuspendLayout();
             // 
             // picturebox_cover
@@ -176,7 +183,7 @@
             // listview_chapers
             // 
             this.listview_chapers.FullRowSelect = true;
-            this.listview_chapers.Location = new System.Drawing.Point(21, 385);
+            this.listview_chapers.Location = new System.Drawing.Point(21, 428);
             this.listview_chapers.Name = "listview_chapers";
             this.listview_chapers.Size = new System.Drawing.Size(478, 141);
             this.listview_chapers.TabIndex = 14;
@@ -212,11 +219,72 @@
             this.backgroundworker_download.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundworker_download_ProgressChanged);
             this.backgroundworker_download.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundworker_download_RunWorkerCompleted);
             // 
+            // btnDownloadParts
+            // 
+            this.btnDownloadParts.Location = new System.Drawing.Point(424, 380);
+            this.btnDownloadParts.Name = "btnDownloadParts";
+            this.btnDownloadParts.Size = new System.Drawing.Size(75, 23);
+            this.btnDownloadParts.TabIndex = 17;
+            this.btnDownloadParts.Text = "部分下载";
+            this.btnDownloadParts.UseVisualStyleBackColor = true;
+            this.btnDownloadParts.Click += new System.EventHandler(this.btnDownloadParts_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(49, 385);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "从：";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(191, 385);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(17, 12);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "到";
+            // 
+            // txtFrom
+            // 
+            this.txtFrom.Location = new System.Drawing.Point(85, 385);
+            this.txtFrom.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtFrom.Name = "txtFrom";
+            this.txtFrom.Size = new System.Drawing.Size(100, 21);
+            this.txtFrom.TabIndex = 22;
+            this.txtFrom.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtFrom.ValueChanged += new System.EventHandler(this.txtFrom_ValueChanged);
+            this.txtFrom.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFrom_KeyUp);
+            // 
+            // txtTo
+            // 
+            this.txtTo.Location = new System.Drawing.Point(214, 385);
+            this.txtTo.Name = "txtTo";
+            this.txtTo.Size = new System.Drawing.Size(100, 21);
+            this.txtTo.TabIndex = 23;
+            this.txtTo.ValueChanged += new System.EventHandler(this.txtTo_ValueChanged);
+            this.txtTo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTo_KeyUp);
+            // 
             // FormBookDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(511, 538);
+            this.ClientSize = new System.Drawing.Size(511, 581);
+            this.Controls.Add(this.txtTo);
+            this.Controls.Add(this.txtFrom);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnDownloadParts);
             this.Controls.Add(this.label_downloadinfo);
             this.Controls.Add(this.progressbar_download);
             this.Controls.Add(this.listview_chapers);
@@ -235,12 +303,14 @@
             this.Controls.Add(this.picturebox_cover);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(527, 577);
-            this.MinimumSize = new System.Drawing.Size(527, 577);
+            this.MaximumSize = new System.Drawing.Size(527, 620);
+            this.MinimumSize = new System.Drawing.Size(527, 620);
             this.Name = "FormBookDetail";
             this.Text = "书籍详情";
             this.Load += new System.EventHandler(this.FormBookDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picturebox_cover)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFrom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,5 +335,10 @@
         private System.Windows.Forms.ProgressBar progressbar_download;
         private System.Windows.Forms.Label label_downloadinfo;
         private System.ComponentModel.BackgroundWorker backgroundworker_download;
+        private System.Windows.Forms.Button btnDownloadParts;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown txtFrom;
+        private System.Windows.Forms.NumericUpDown txtTo;
     }
 }

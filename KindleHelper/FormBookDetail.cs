@@ -25,6 +25,7 @@ namespace KindleHelper
         tocChaperInfo[] mChapers;
         TocSummmaryInfo[] mTocs;
         MixTocInfo mMixToc;
+        List<tocChaperInfo> preDownLoadChapters = new List<tocChaperInfo>();
 
         public void ShowBook(QueryBookInfo book)
         {
@@ -90,19 +91,12 @@ namespace KindleHelper
 
             if (mChapers != null)
             {
-                listview_chapers.BeginUpdate();
-                listview_chapers.Items.Clear();
-                foreach (var chaper in mChapers)
-                {
-                    ListViewItem item = new ListViewItem();
-                    item.Text = chaper.title;
-                    item.SubItems.Add(chaper.link);
-                    listview_chapers.Items.Add(item);
-                }
-                listview_chapers.EndUpdate();
-
-
+                UpdateChapterList(mChapers);
             }
+
+            txtFrom.Maximum = mChapers.Length + 1;
+            txtTo.Maximum = mChapers.Length + 1;
+            txtTo.Value = txtTo.Maximum;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -133,7 +127,38 @@ namespace KindleHelper
 
         private void button_download_Click(object sender, EventArgs e)
         {
+            preDownLoadChapters = new List<tocChaperInfo>(mChapers);
+            DownloadClik();
+        }
 
+        private void btnDownloadParts_Click(object sender, EventArgs e)
+        {
+            GetPreDownLoadChapters();
+
+            DownloadClik();
+        }
+
+        private void GetPreDownLoadChapters()
+        {
+            int fromChapter = (int)txtFrom.Value - 1;
+            int toChapter = (int)txtTo.Value - 1;
+            if (fromChapter > toChapter)
+            {
+                MessageBox.Show("开始章节不能大于结束章节");
+                return;
+            }
+
+
+            preDownLoadChapters.Clear();
+            for (int i = fromChapter; i < toChapter; i++)
+            {
+                preDownLoadChapters.Add(mChapers[i]);
+            }
+
+        }
+
+        private void DownloadClik()
+        {
             if (backgroundworker_download.IsBusy && backgroundworker_download.CancellationPending)
             {
                 return;
@@ -156,6 +181,7 @@ namespace KindleHelper
                 startDownload(fn);
             }
         }
+
         private void startDownload(string savePath)
         {
             button_download.Text = "取消";
@@ -186,7 +212,7 @@ namespace KindleHelper
 
         private void backgroundworker_download_DoWork(object sender, DoWorkEventArgs e)
         {
-            var chapters = mChapers;
+            var chapters = preDownLoadChapters.ToArray();
             var pb = progressbar_download;
             var label = label_downloadinfo;
             string savePath = e.Argument.ToString();
@@ -287,5 +313,62 @@ namespace KindleHelper
                 System.Diagnostics.Process.Start(chapter.link);
             }
         }
+
+        private void txtFrom_ValueChanged(object sender, EventArgs e)
+        {
+            FromChange();
+        }
+
+        private void txtTo_ValueChanged(object sender, EventArgs e)
+        {
+            ToChange();
+        }
+
+        private void UpdateChapterList(tocChaperInfo[] chapters)
+        {
+            listview_chapers.BeginUpdate();
+            listview_chapers.Items.Clear();
+            foreach (var chaper in chapters)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Text = chaper.title;
+                item.SubItems.Add(chaper.link);
+                listview_chapers.Items.Add(item);
+            }
+            listview_chapers.EndUpdate();
+        }
+
+        private void txtFrom_KeyUp(object sender, KeyEventArgs e)
+        {
+            FromChange();
+        }
+
+        private void txtTo_KeyUp(object sender, KeyEventArgs e)
+        {
+            ToChange();
+        }
+
+        private void FromChange()
+        {
+            if (txtFrom.Value < 1) return;
+
+            txtTo.Minimum = txtFrom.Value;
+
+            if (txtTo.Value < txtFrom.Value)
+            {
+                txtTo.Value = txtFrom.Value;
+            }
+
+            GetPreDownLoadChapters();
+            UpdateChapterList(preDownLoadChapters.ToArray());
+        }
+
+        private void ToChange()
+        {
+            GetPreDownLoadChapters();
+            UpdateChapterList(preDownLoadChapters.ToArray());
+        }
+
+
     }
 }
