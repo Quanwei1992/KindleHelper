@@ -46,10 +46,11 @@
             this.label_downloadinfo = new System.Windows.Forms.Label();
             this.backgroundworker_download = new System.ComponentModel.BackgroundWorker();
             this.btnDownloadParts = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtFrom = new System.Windows.Forms.NumericUpDown();
             this.txtTo = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblChapterCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picturebox_cover)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTo)).BeginInit();
@@ -229,19 +230,10 @@
             this.btnDownloadParts.UseVisualStyleBackColor = true;
             this.btnDownloadParts.Click += new System.EventHandler(this.btnDownloadParts_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 385);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "从：";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(191, 385);
+            this.label3.Location = new System.Drawing.Point(191, 391);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(17, 12);
             this.label3.TabIndex = 20;
@@ -275,15 +267,33 @@
             this.txtTo.ValueChanged += new System.EventHandler(this.txtTo_ValueChanged);
             this.txtTo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTo_KeyUp);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(50, 391);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "从：";
+            // 
+            // lblChapterCount
+            // 
+            this.lblChapterCount.AutoSize = true;
+            this.lblChapterCount.Location = new System.Drawing.Point(320, 391);
+            this.lblChapterCount.Name = "lblChapterCount";
+            this.lblChapterCount.Size = new System.Drawing.Size(0, 12);
+            this.lblChapterCount.TabIndex = 25;
+            // 
             // FormBookDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 581);
+            this.Controls.Add(this.lblChapterCount);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTo);
             this.Controls.Add(this.txtFrom);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnDownloadParts);
             this.Controls.Add(this.label_downloadinfo);
             this.Controls.Add(this.progressbar_download);
@@ -336,9 +346,10 @@
         private System.Windows.Forms.Label label_downloadinfo;
         private System.ComponentModel.BackgroundWorker backgroundworker_download;
         private System.Windows.Forms.Button btnDownloadParts;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown txtFrom;
         private System.Windows.Forms.NumericUpDown txtTo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblChapterCount;
     }
 }

@@ -94,9 +94,10 @@ namespace KindleHelper
                 UpdateChapterList(mChapers);
             }
 
-            txtFrom.Maximum = mChapers.Length + 1;
+            txtFrom.Maximum = mChapers.Length;
             txtTo.Maximum = mChapers.Length + 1;
             txtTo.Value = txtTo.Maximum;
+            lblChapterCount.Text = $"共 {mChapers.Length + 1} 章";
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -354,9 +355,9 @@ namespace KindleHelper
 
             txtTo.Minimum = txtFrom.Value;
 
-            if (txtTo.Value < txtFrom.Value)
+            if (txtTo.Value <= txtFrom.Value)
             {
-                txtTo.Value = txtFrom.Value;
+                txtTo.Value = txtFrom.Value + 1;
             }
 
             GetPreDownLoadChapters();
