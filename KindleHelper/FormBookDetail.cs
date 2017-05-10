@@ -25,19 +25,24 @@ namespace KindleHelper
         tocChaperInfo[] mChapers;
         TocSummmaryInfo[] mTocs;
         MixTocInfo mMixToc;
+        List<tocChaperInfo> preDownLoadChapters = new List<tocChaperInfo>();
 
         public void ShowBook(QueryBookInfo book)
         {
             mBook = book;
             label_name.Text = book.title;
             string wordCount = book.wordCount + "字";
-            if (book.wordCount >= 10000) {
+            if (book.wordCount >= 10000)
+            {
                 wordCount = (book.wordCount / 10000) + " 万字";
             }
             label_baseinfo.Text = book.author + " | " + book.cat + " | " + wordCount;
-            if (!string.IsNullOrWhiteSpace(book.retentionRatio)) {
+            if (!string.IsNullOrWhiteSpace(book.retentionRatio))
+            {
                 label_retentionRatio.Text = "追书留存率:" + book.retentionRatio + "%";
-            } else {
+            }
+            else
+            {
                 label_retentionRatio.Text = "追书留存率:无数据";
             }
 
@@ -47,7 +52,8 @@ namespace KindleHelper
             textBox_shortIntro.Text = book.shortIntro;
             string url = book.cover;
             int urlStartIndex = url.IndexOf("http:");
-            if (urlStartIndex >= 0) {
+            if (urlStartIndex >= 0)
+            {
                 url = url.Substring(urlStartIndex);
                 picturebox_cover.ImageLocation = url;
             }
@@ -56,41 +62,42 @@ namespace KindleHelper
             mTocs = LibZhuiShu.getTocSummary(mBook._id);
             changeToc(-1);
             this.Show();
-            
+
         }
 
 
 
         void changeToc(int index)
         {
-            if (index < 0) {
+            if (index < 0)
+            {
                 //混合源
-                if (mMixToc != null) {
+                if (mMixToc != null)
+                {
                     mChapers = mMixToc.chapters;
                 }
                 label_toc.Text = "当前书源:混合源";
-            } else {
+            }
+            else
+            {
                 var toc = mTocs[index];
                 var info = LibZhuiShu.getChaperList(toc._id);
-                if (info != null) {
+                if (info != null)
+                {
                     mChapers = info.chapters;
                 }
                 label_toc.Text = "当前书源:" + toc.name;
             }
 
-            if (mChapers != null) {
-                listview_chapers.BeginUpdate();
-                listview_chapers.Items.Clear();
-                foreach (var chaper in mChapers) {
-                    ListViewItem item = new ListViewItem();
-                    item.Text = chaper.title;
-                    item.SubItems.Add(chaper.link);
-                    listview_chapers.Items.Add(item);
-                }
-                listview_chapers.EndUpdate();
-
-
+            if (mChapers != null)
+            {
+                UpdateChapterList(mChapers);
             }
+
+            txtFrom.Maximum = mChapers.Length;
+            txtTo.Maximum = mChapers.Length + 1;
+            txtTo.Value = txtTo.Maximum;
+            lblChapterCount.Text = $"共 {mChapers.Length + 1} 章";
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -113,19 +120,53 @@ namespace KindleHelper
         {
             if (backgroundworker_download.IsBusy) return;
             FormTocList formToc = new FormTocList();
-            formToc.ShowTocList(mMixToc, mTocs, (index) => {
+            formToc.ShowTocList(mMixToc, mTocs, (index) =>
+            {
                 changeToc(index);
             });
         }
 
         private void button_download_Click(object sender, EventArgs e)
         {
+            preDownLoadChapters = new List<tocChaperInfo>(mChapers);
+            DownloadClik();
+        }
 
-            if (backgroundworker_download.IsBusy && backgroundworker_download.CancellationPending) {
+        private void btnDownloadParts_Click(object sender, EventArgs e)
+        {
+            GetPreDownLoadChapters();
+
+            DownloadClik();
+        }
+
+        private void GetPreDownLoadChapters()
+        {
+            int fromChapter = (int)txtFrom.Value - 1;
+            int toChapter = (int)txtTo.Value - 1;
+            if (fromChapter > toChapter)
+            {
+                MessageBox.Show("开始章节不能大于结束章节");
                 return;
             }
 
-            if (backgroundworker_download.IsBusy) {
+
+            preDownLoadChapters.Clear();
+            for (int i = fromChapter; i < toChapter; i++)
+            {
+                preDownLoadChapters.Add(mChapers[i]);
+            }
+
+        }
+
+        private void DownloadClik()
+        {
+            if (backgroundworker_download.IsBusy && backgroundworker_download.CancellationPending)
+            {
+                return;
+            }
+
+            if (backgroundworker_download.IsBusy)
+            {
                 stopDownload();
                 return;
             }
@@ -135,11 +176,13 @@ namespace KindleHelper
             sfd.FilterIndex = 0;
             sfd.FileName = mBook.title;
             sfd.RestoreDirectory = true;
-            if (sfd.ShowDialog() == DialogResult.OK) {
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
                 string fn = sfd.FileName;
                 startDownload(fn);
             }
         }
+
         private void startDownload(string savePath)
         {
             button_download.Text = "取消";
@@ -153,7 +196,8 @@ namespace KindleHelper
 
         private void stopDownload()
         {
-            if (backgroundworker_download.IsBusy) {
+            if (backgroundworker_download.IsBusy)
+            {
                 backgroundworker_download.CancelAsync();
                 button_download.Text = "正在取消";
             }
@@ -169,12 +213,13 @@ namespace KindleHelper
 
         private void backgroundworker_download_DoWork(object sender, DoWorkEventArgs e)
         {
-            var chapters = mChapers;
+            var chapters = preDownLoadChapters.ToArray();
             var pb = progressbar_download;
             var label = label_downloadinfo;
             string savePath = e.Argument.ToString();
             List<ChapterInfo> chaperInfoList = new List<ChapterInfo>();
-            for (int i = 0; i < chapters.Length; i++) {
+            for (int i = 0; i < chapters.Length; i++)
+            {
                 if (backgroundworker_download.CancellationPending) return;
                 var chapter = chapters[i];
                 float progress = (float)(i + 1) / (float)chapters.Length;
@@ -182,27 +227,37 @@ namespace KindleHelper
                    progress * 100);
                 backgroundworker_download.ReportProgress(i, info);
 
-                while (true) {
+                while (true)
+                {
                     bool downloadSucess = false;
                     string errMsg = "";
-                    for (int j = 0; j < 3; j++) {
-                        try {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        try
+                        {
                             var chapterInfo = LibZhuiShu.getChapter(chapter.link);
-                            if (chapterInfo != null) {
+                            if (chapterInfo != null)
+                            {
                                 chapterInfo.title = chapter.title;
                                 chaperInfoList.Add(chapterInfo);
                                 downloadSucess = true;
                                 break;
                             }
-                        } catch(Exception ex) {
+                        }
+                        catch (Exception ex)
+                        {
                             errMsg = ex.Message;
                         }
                     }
-                    if (!downloadSucess) {
+                    if (!downloadSucess)
+                    {
                         var result = MessageBox.Show(errMsg, "章节 " + chapter.title + " 下载失败", MessageBoxButtons.AbortRetryIgnore);
-                        if (result == DialogResult.Abort) {
+                        if (result == DialogResult.Abort)
+                        {
                             return;
-                        } else if (result == DialogResult.Ignore) {
+                        }
+                        else if (result == DialogResult.Ignore)
+                        {
                             var emptyChaper = new ChapterInfo();
                             emptyChaper.title = chapter.title;
                             emptyChaper.body = "本章下载失败了，失败原因:\n " + errMsg;
@@ -211,7 +266,9 @@ namespace KindleHelper
                             break;
                         }
 
-                    } else {
+                    }
+                    else
+                    {
                         break;
                     }
                 }
@@ -223,9 +280,12 @@ namespace KindleHelper
             book.author = mBook.author;
             book.id = mBook._id;
             book.chapters = chaperInfoList.ToArray();
-            if (ext.ToLower() == ".txt") {
-                Kindlegen.book2Txt(book,savePath);
-            } else if (ext.ToLower() == ".mobi") {
+            if (ext.ToLower() == ".txt")
+            {
+                Kindlegen.book2Txt(book, savePath);
+            }
+            else if (ext.ToLower() == ".mobi")
+            {
                 Kindlegen.book2Mobi(book, savePath);
             }
             MessageBox.Show("下载完成,文件保存在:" + savePath);
@@ -239,18 +299,77 @@ namespace KindleHelper
         private void backgroundworker_download_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             progressbar_download.Value = e.ProgressPercentage;
-            if (e.UserState != null) {
+            if (e.UserState != null)
+            {
                 label_downloadinfo.Text = e.UserState.ToString();
-            }     
+            }
         }
 
         private void listview_chapers_DoubleClick(object sender, EventArgs e)
         {
-            if (listview_chapers.SelectedIndices.Count > 0) {
+            if (listview_chapers.SelectedIndices.Count > 0)
+            {
                 int index = listview_chapers.SelectedIndices[0];
                 var chapter = mChapers[index];
                 System.Diagnostics.Process.Start(chapter.link);
             }
         }
+
+        private void txtFrom_ValueChanged(object sender, EventArgs e)
+        {
+            FromChange();
+        }
+
+        private void txtTo_ValueChanged(object sender, EventArgs e)
+        {
+            ToChange();
+        }
+
+        private void UpdateChapterList(tocChaperInfo[] chapters)
+        {
+            listview_chapers.BeginUpdate();
+            listview_chapers.Items.Clear();
+            foreach (var chaper in chapters)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Text = chaper.title;
+                item.SubItems.Add(chaper.link);
+                listview_chapers.Items.Add(item);
+            }
+            listview_chapers.EndUpdate();
+        }
+
+        private void txtFrom_KeyUp(object sender, KeyEventArgs e)
+        {
+            FromChange();
+        }
+
+        private void txtTo_KeyUp(object sender, KeyEventArgs e)
+        {
+            ToChange();
+        }
+
+        private void FromChange()
+        {
+            if (txtFrom.Value < 1) return;
+
+            txtTo.Minimum = txtFrom.Value;
+
+            if (txtTo.Value <= txtFrom.Value)
+            {
+                txtTo.Value = txtFrom.Value + 1;
+            }
+
+            GetPreDownLoadChapters();
+            UpdateChapterList(preDownLoadChapters.ToArray());
+        }
+
+        private void ToChange()
+        {
+            GetPreDownLoadChapters();
+            UpdateChapterList(preDownLoadChapters.ToArray());
+        }
+
+
     }
 }
