@@ -1,4 +1,11 @@
 # KindleHelper
-自动下载小说,转换成kindle可用的格式
-#donwload
-https://github.com/qq573011406/KindleHelper/releases
+全网小说搜索&下载.支持Mobi/txt格式.
+#下载
+github: https://github.com/qq573011406/KindleHelper/releases
+百度网盘: https://pan.baidu.com/s/1dEWLErZ 密码: 2wm8
+![1](https://github.com/qq573011406/KindleHelper/raw/master/KindleHelper/resource/1.png)
+![1](https://github.com/qq573011406/KindleHelper/raw/master/KindleHelper/resource/2.png)
+![1](https://github.com/qq573011406/KindleHelper/raw/master/KindleHelper/resource/3.png)
+![1](https://github.com/qq573011406/KindleHelper/raw/master/KindleHelper/resource/4.jpg)
+![1](https://github.com/qq573011406/KindleHelper/raw/master/KindleHelper/resource/5.jpg)
+![1](https://github.com/qq573011406/KindleHelper/raw/master/KindleHelper/resource/6.jpg)
