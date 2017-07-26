@@ -1,0 +1,26 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly KindleHelper.Plugin.CPPPlugin, Version=1.0.*, Culture=固定语言(固定国家/地区): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly KindleHelper.Plugin.Interface, Version=2.0.*, Culture=固定语言(固定国家/地区): 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class KindleHelper.Plugin.CPPPlugin.CPPPlugin: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    KindleHelper.Plugin.Interface.IPlugin
+  Methods:
+    Show(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ShowForm(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ShowFormAsDialog(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    version(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    getresult(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    run(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Watch(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    IsNotNeedToShowAsDialog(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask

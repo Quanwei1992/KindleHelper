@@ -1,0 +1,1 @@
+本软件为下载kindel商店上的书并可选择是否发送的工具（目前尚未测试），软件为开源软件，遵循GPL协议，源代码可在https://github.com/yh200212121212/KindleHelper获得。

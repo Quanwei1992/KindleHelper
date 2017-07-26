@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<package version="2.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="bookid">
+<metadata>
+<dc-metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+<dc:identifier id="bookid">___BOOK_ID___</dc:identifier>
+<dc:title>___BOOK_NAME___</dc:title>
+<dc:date>2016</dc:date>
+<dc:rights>Created with EasyPub v1.50</dc:rights>
+<dc:language>zh-CN</dc:language>
+</dc-metadata>
+</metadata>
+<manifest>
+<item id="ncxtoc" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+<item id="htmltoc"  href="book-toc.html" media-type="application/xhtml+xml"/>
+<item id="css" href="style.css" media-type="text/css"/>
+<item id="cover" href="cover.html" media-type="application/xhtml+xml"/>
+___MANIFEST___
+</manifest>
+<spine toc="ncxtoc">
+<itemref idref="cover" linear="no"/>
+<itemref idref="htmltoc" linear="yes"/>
+___SPINE___
+</spine>
+<guide>
+<reference href="cover.html" type="cover" title="Cover"/>
+<reference href="book-toc.html" type="toc" title="Table Of Contents"/>
+<reference href="chapter0.html" type="text" title="Beginning"/>
+</guide>
+</package>

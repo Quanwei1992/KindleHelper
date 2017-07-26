@@ -1,0 +1,8 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/.vs/KindleHelper/v15/Browse.VC.opendb
+KindleHelper.v12.suo
+KindleHelper.sdf
+/ipch/kindlehelper.plugin.cppplugin-34f75514
