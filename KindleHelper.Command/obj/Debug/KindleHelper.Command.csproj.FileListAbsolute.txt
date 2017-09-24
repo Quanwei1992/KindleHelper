@@ -1,0 +1,6 @@
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\KindleHelper.Command.exe.config
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\KindleHelper.Command.exe
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\KindleHelper.Command.pdb
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Command\obj\Debug\KindleHelper.Command.csprojResolveAssemblyReference.cache
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Command\obj\Debug\KindleHelper.Command.exe
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Command\obj\Debug\KindleHelper.Command.pdb

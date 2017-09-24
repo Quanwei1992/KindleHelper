@@ -107,11 +107,11 @@ namespace KindleHelper
             this.Close(); 
         }
         int a, b;
-        Class1 c;
+        GrapchHelper c;
         private void jkj(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            c = new Class1(g);
+            c = new GrapchHelper(g);
             c.Draw(b, a);
             g.Dispose();
         }
@@ -127,7 +127,7 @@ namespace KindleHelper
             a = Width;
             b = Height;
             Graphics g = Graphics.FromHwnd(Handle);
-            c = new Class1(g);
+            c = new GrapchHelper(g);
             c.Draw(b, a);
             g.Dispose();
             c.Dispose();

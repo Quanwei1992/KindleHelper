@@ -1,0 +1,4 @@
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\plugin\KindleHelper.Plugin.Interface.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\plugin\KindleHelper.Plugin.Interface.pdb
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Plugin.Interface\obj\Debug\KindleHelper.Plugin.Interface.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Plugin.Interface\obj\Debug\KindleHelper.Plugin.Interface.pdb

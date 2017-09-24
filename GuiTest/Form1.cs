@@ -13,11 +13,11 @@ namespace GuiTest
     public partial class Form1 : Form
     {
         int a, b;
-        Class1 c;
+        GrapchHelper c;
         private void P(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            c = new Class1(g);
+            c = new GrapchHelper(g);
             c.Draw(a, b);
             g.Dispose();
         }

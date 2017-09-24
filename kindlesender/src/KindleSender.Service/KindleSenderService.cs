@@ -1,35 +1,35 @@
-﻿using System.Diagnostics;
+﻿using loglibrary;
+using System.Diagnostics;
 using System.ServiceProcess;
-using log4net;
+
 
 namespace KindleSender.Service
 {
   public partial class KindleSenderService : ServiceBase
   {
-    private static readonly ILog Log = LogManager.GetLogger(typeof(KindleSenderService));
   
     private IFolderWatcher _folderWatcher;
 
     public KindleSenderService()
     {
-      Log.Info("Initializing Kindle Sender Service.");
-
+      LogHelper.Info("Initializing Kindle Sender Service.");
       InitializeComponent();
       InitializeService();
+      LogHelper.Flush();
     }
 
     protected override void OnStart(string[] args)
     {
       _folderWatcher.Start();
-
-      Log.Info("Kindle Sender Service started.");
+      LogHelper.Info("Kindle Sender Service started.");
+      LogHelper.Flush();
     }
 
     protected override void OnStop()
     {
       _folderWatcher.Stop();
-
-      Log.Info("Kindle Sender Service stoped.");
+      LogHelper.Info("Kindle Sender Service stoped.");
+      LogHelper.Flush();
     }
 
     private void InitializeService()

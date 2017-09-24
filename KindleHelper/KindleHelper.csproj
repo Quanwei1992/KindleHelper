@@ -135,6 +135,8 @@
     </Compile>
     <Compile Include="lib\Book.cs" />
     <Compile Include="lib\BookDownloader.cs" />
+    <Compile Include="lib\IBookDownloader.cs" />
+    <Compile Include="lib\IKindlegen.cs" />
     <Compile Include="lib\Kindlegen.cs" />
     <Compile Include="lib\PluginHelper.cs" />
     <Compile Include="Program.cs" />

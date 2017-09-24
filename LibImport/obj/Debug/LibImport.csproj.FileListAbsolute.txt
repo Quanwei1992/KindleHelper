@@ -1,0 +1,5 @@
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\LibImport.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\LibImport.pdb
+D:\$代码\KindleHelper-master\KindleHelper-master\LibImport\obj\Debug\LibImport.csprojResolveAssemblyReference.cache
+D:\$代码\KindleHelper-master\KindleHelper-master\LibImport\obj\Debug\LibImport.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\LibImport\obj\Debug\LibImport.pdb

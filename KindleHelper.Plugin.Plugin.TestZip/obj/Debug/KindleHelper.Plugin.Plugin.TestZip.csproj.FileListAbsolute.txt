@@ -1,0 +1,6 @@
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\plugin\Desktop.zip
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\plugin\KindleHelper.Plugin.Plugin.TestZip.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\plugin\KindleHelper.Plugin.Plugin.TestZip.pdb
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Plugin.Plugin.TestZip\obj\Debug\KindleHelper.Plugin.Plugin.TestZip.csprojResolveAssemblyReference.cache
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Plugin.Plugin.TestZip\obj\Debug\KindleHelper.Plugin.Plugin.TestZip.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Plugin.Plugin.TestZip\obj\Debug\KindleHelper.Plugin.Plugin.TestZip.pdb

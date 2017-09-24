@@ -14,6 +14,7 @@ using System.IO;
 using System.Diagnostics;
 using KindleSender.Service;
 using GrapchLibrary;
+using KindleHelper.lib;
 namespace KindleHelper
 {
     public partial class FormBookDetail : Form
@@ -30,7 +31,7 @@ namespace KindleHelper
         MixTocInfo mMixToc;
         List<tocChaperInfo> preDownLoadChapters = new List<tocChaperInfo>();
         int a, b;
-        Class1 c;
+        GrapchHelper c;
         public void ShowBook(QueryBookInfo book)
         {
             mBook = book;
@@ -110,13 +111,13 @@ namespace KindleHelper
             listview_chapers.Columns.Add("章节名称", 120);
             listview_chapers.Columns.Add("链接", 280);
             LibImport.Class1 c = new LibImport.Class1();
-            if (File.Exists(c.path))
+            if (File.Exists(c.Path))
             {
                 str=c.Read();
             }
             else
             {
-                c.Creat();
+                c.CreatAndWriteFile();
             }
         }
         internal static string str = "";
@@ -301,7 +302,7 @@ namespace KindleHelper
         private void P(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            c = new Class1(g);
+            c = new GrapchHelper(g);
             c.Draw(b, a);
             g.Dispose();
         }

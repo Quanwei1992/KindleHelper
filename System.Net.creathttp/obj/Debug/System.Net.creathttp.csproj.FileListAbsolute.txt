@@ -1,0 +1,5 @@
+D:\$代码\KindleHelper-master\KindleHelper-master\System.Net.creathttp\bin\Debug\System.Net.creathttp.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\System.Net.creathttp\bin\Debug\System.Net.creathttp.pdb
+D:\$代码\KindleHelper-master\KindleHelper-master\System.Net.creathttp\obj\Debug\System.Net.creathttp.csprojResolveAssemblyReference.cache
+D:\$代码\KindleHelper-master\KindleHelper-master\System.Net.creathttp\obj\Debug\System.Net.creathttp.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\System.Net.creathttp\obj\Debug\System.Net.creathttp.pdb

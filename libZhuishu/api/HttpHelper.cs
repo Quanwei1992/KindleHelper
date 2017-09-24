@@ -7,6 +7,12 @@ namespace libZhuishu
 {
     public class HttpHelper
     {
+        /// <summary>
+        /// 获取
+        /// </summary>
+        /// <param name="url">地址</param>
+        /// <param name="args">对象</param>
+        /// <returns></returns>
         public static string GET(string url, params KeyValuePair<string, string>[] args)
         {
             string param = "";
@@ -28,6 +34,13 @@ namespace libZhuishu
             reader.Close();
             return result;
         }
+        /// <summary>
+        /// 获取
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="o"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public static string GET(string url,object o,params Dictionary<string, string>[] args)
         {
             KeyValuePair<string, string>[] pair = new KeyValuePair<string, string>[] { };
@@ -43,12 +56,24 @@ namespace libZhuishu
             }
             return GET(url, pair);
         }
+        /// <summary>
+        /// 获取json对象
+        /// </summary>
+        /// <param name="url">地址</param>
+        /// <param name="args">参数</param>
+        /// <returns></returns>
         public static JObject GET_JsonObject(string url, params KeyValuePair<string, string>[] args)
         {
             string result = GET(url, args);
             JObject obj = JObject.Parse(result);
             return obj;
         }
+        /// <summary>
+        /// 获取json数组
+        /// </summary>
+        /// <param name="url">地址</param>
+        /// <param name="args">参数</param>
+        /// <returns></returns>
         public static JArray GET_JsonArray(string url, params KeyValuePair<string, string>[] args)
         {
             string result = GET(url, args);

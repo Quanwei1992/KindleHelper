@@ -1,0 +1,9 @@
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\plugin\KindleHelper.Plugin.VBPlugin.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\plugin\KindleHelper.Plugin.VBPlugin.pdb
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\plugin\KindleHelper.Plugin.VBPlugin.xml
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Plugin.VBPlugin\obj\Debug\KindleHelper.Plugin.VBPlugin.vbprojResolveAssemblyReference.cache
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Plugin.VBPlugin\obj\Debug\KindleHelper.Plugin.VBPlugin.Resources.resources
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Plugin.VBPlugin\obj\Debug\KindleHelper.Plugin.VBPlugin.vbproj.GenerateResource.Cache
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Plugin.VBPlugin\obj\Debug\KindleHelper.Plugin.VBPlugin.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Plugin.VBPlugin\obj\Debug\KindleHelper.Plugin.VBPlugin.xml
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Plugin.VBPlugin\obj\Debug\KindleHelper.Plugin.VBPlugin.pdb

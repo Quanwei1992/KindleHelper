@@ -16,7 +16,7 @@ namespace KindleHelper
     public partial class FormSearch : Form
     {
         int a, b;
-        Class1 c;
+        GrapchHelper c;
         public FormSearch()
         {
             InitializeComponent();
@@ -115,7 +115,7 @@ namespace KindleHelper
             AssemblyCompanyAttribute asmcpn = (AssemblyCompanyAttribute)Attribute.GetCustomAttribute(asm, typeof(AssemblyCompanyAttribute));
             this.Text += " V" + asmdis.Description + (IsAdministrator() ? "(管理员）" : "");
             button2_Click(null,null);
-            new Thread(new ParameterizedThreadStart((o) => { new testlib.Class1(); })).Start();
+            new testlib.Class1();
         }
         private void func2()
         {
@@ -151,7 +151,7 @@ namespace KindleHelper
         private void P(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            c = new Class1(g);
+            c = new GrapchHelper(g);
             c.Draw(b, a);
             g.Dispose();
         }
@@ -200,7 +200,7 @@ namespace KindleHelper
         {
             listBox1.Items.Remove(listBox1.SelectedItem);
         }
-        private object[] testtt(IPlugin r)
+        private object[] ConvrtResultToObject(IPlugin r)
         {
             try
             {
@@ -228,7 +228,7 @@ namespace KindleHelper
                  r.ShowFormAsDialog();
                 }
                 listBox2.Items.Add(r.version());
-                listBox2.Items.AddRange(testtt(r));
+                listBox2.Items.AddRange(ConvrtResultToObject(r));
                 listBox2.Items.Add("耗时："+watch.Elapsed.ToString());
                 listBox2.Items.Add("计时器周期："+watch.ElapsedTicks);
             }
@@ -279,7 +279,7 @@ namespace KindleHelper
             a = Width;
             b = Height;
             Graphics g = Graphics.FromHwnd(Handle);
-            c = new Class1(g);
+            c = new GrapchHelper(g);
             c.Draw(b, a);
             g.Dispose();
             c.Dispose();         

@@ -2,9 +2,9 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "KindelHelper"
-#define MyAppVersion "1.8"
+#define MyAppVersion "3.8"
 #define MyAppPublisher "My Company, Inc."
-#define MyAppURL "http://www.example.com/"
+#define MyAppURL "https://github.com/yh200212121212/KindleHelper"
 #define MyAppExeName "KindleHelper.exe"
 
 [Setup]

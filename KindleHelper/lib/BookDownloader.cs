@@ -5,9 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using KindleHelper.lib;
 namespace KindleHelper
 {
-    public class BookDownloader
+    public class BookDownloader : IBookDownloader
     {
 
 
@@ -32,6 +33,9 @@ namespace KindleHelper
         private object _lock_obj = new object();
         int mChaptersDownloadComplteCount = 0;
         List<Thread> mWorkThreads = new List<Thread>();
+        /// <summary>
+        /// 开始下载
+        /// </summary>
         public void StartDownload()
         {
             // 获得章节列表和所有书源

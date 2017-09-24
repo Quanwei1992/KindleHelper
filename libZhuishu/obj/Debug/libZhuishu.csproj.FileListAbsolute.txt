@@ -1,0 +1,16 @@
+D:\$代码\KindleHelper-master\KindleHelper-master\libZhuishu\bin\Debug\libZhuishu.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\libZhuishu\bin\Debug\libZhuishu.pdb
+D:\$代码\KindleHelper-master\KindleHelper-master\libZhuishu\bin\Debug\eBdb.EpubReader.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\libZhuishu\bin\Debug\Newtonsoft.Json.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\libZhuishu\bin\Debug\System.Net.creathttp.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\libZhuishu\bin\Debug\System.Net.Http.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\libZhuishu\bin\Debug\Ionic.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\libZhuishu\bin\Debug\eBdb.EpubReader.pdb
+D:\$代码\KindleHelper-master\KindleHelper-master\libZhuishu\bin\Debug\System.Net.creathttp.pdb
+D:\$代码\KindleHelper-master\KindleHelper-master\libZhuishu\bin\Debug\Newtonsoft.Json.xml
+D:\$代码\KindleHelper-master\KindleHelper-master\libZhuishu\bin\Debug\System.Net.Http.xml
+D:\$代码\KindleHelper-master\KindleHelper-master\libZhuishu\bin\Debug\Ionic.pdb
+D:\$代码\KindleHelper-master\KindleHelper-master\libZhuishu\bin\Debug\zh-Hans\System.Net.Http.resources.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\libZhuishu\obj\Debug\libZhuishu.csprojResolveAssemblyReference.cache
+D:\$代码\KindleHelper-master\KindleHelper-master\libZhuishu\obj\Debug\libZhuishu.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\libZhuishu\obj\Debug\libZhuishu.pdb

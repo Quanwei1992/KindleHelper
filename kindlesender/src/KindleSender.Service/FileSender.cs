@@ -5,13 +5,12 @@ using System.Net.Mail;
 using System.Net.Mime;
 using System.Runtime.InteropServices;
 using System.Threading;
-using log4net;
+using loglibrary;
 
 namespace KindleSender.Service
 {
   public class FileSender : IFileSender
   {
-    private static readonly ILog Log = LogManager.GetLogger(typeof(FolderWatcher));
 
     private readonly IConfiguration _configuration;
 
@@ -31,13 +30,13 @@ namespace KindleSender.Service
     {
       var fileName = filePath.Replace(_configuration.FolderPath, string.Empty).Replace(@"\", string.Empty);
 
-      Log.Info(string.Format("Sending file {0} ... ", fileName));
+      LogHelper.Info(string.Format("Sending file {0} ... ", fileName));
 
       var tryOpenFileCount = 1;
 
       while (IsFileLocked(filePath))
       {
-        Log.WarnFormat("File is locked. Try: {0}", tryOpenFileCount);
+        LogHelper.WarnFormat("File is locked. Try: {0}", tryOpenFileCount);
         Thread.Sleep(5000);
 
         tryOpenFileCount++;
@@ -47,11 +46,15 @@ namespace KindleSender.Service
       {
         SendEmail(filePath);
 
-        Log.Info(string.Format("Sended file {0} ... ", fileName));
+        LogHelper.Info(string.Format("Sended file {0} ... ", fileName));
       }
       catch (Exception ex)
       {
-        Log.Error(ex.Message);
+          LogHelper.Error(ex.Message);
+      }
+      finally
+      {
+          LogHelper.Flush();
       }
     }
 

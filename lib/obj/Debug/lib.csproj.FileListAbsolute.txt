@@ -1,0 +1,4 @@
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\lib.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\lib.pdb
+D:\$代码\KindleHelper-master\KindleHelper-master\lib\obj\Debug\lib.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\lib\obj\Debug\lib.pdb

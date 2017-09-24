@@ -8,9 +8,15 @@ using KindleHelper.Plugin.Interface;
 
 namespace KindleHelper.lib
 {
+    /// <summary>
+    /// 插件加载类，项目中第三个核心类
+    /// </summary>
     internal class PluginHelper
     {
-        //查找所有插件的路径
+        /// <summary>
+        /// 查找所有插件的路径
+        /// </summary>
+        /// <returns>包含所有插件路径的列表</returns>
         internal List<string> FindPlugin()
         {
             List<string> pluginpath = new List<string>();
@@ -31,7 +37,14 @@ namespace KindleHelper.lib
             }
             return pluginpath;
         }
-        //载入插件，在Assembly中查找类型
+        /// <summary>
+        /// 载入插件，在Assembly中查找类型
+        /// </summary>
+        /// <param name="asm">一个程序集对象</param>
+        /// <param name="className">类的名称</param>
+        /// <param name="interfacename">接口名称</param>
+        /// <param name="param">参数</param>
+        /// <returns>载入的插件对象</returns>
         internal object LoadObject(Assembly asm, string className, string interfacename, object[] param)
         {
             try
@@ -61,7 +74,11 @@ namespace KindleHelper.lib
                 return null;
             }
         }
-        //移除无效的的插件，返回正确的插件路径列表，Invalid:无效的
+        /// <summary>
+        /// 移除无效的的插件，返回正确的插件路径列表
+        /// </summary>
+        /// <param name="PlunginPath">插件路径</param>
+        /// <returns></returns>
         internal List<string> DeleteInvalidPlungin(List<string> PlunginPath)
         {
             string interfacename = typeof(IPlugin).FullName;

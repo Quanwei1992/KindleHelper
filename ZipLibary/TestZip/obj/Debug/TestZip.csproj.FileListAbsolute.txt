@@ -1,0 +1,7 @@
+D:\$代码\KindleHelper-master\KindleHelper-master\ZipLibary\TestZip\bin\Debug\TestZip.exe
+D:\$代码\KindleHelper-master\KindleHelper-master\ZipLibary\TestZip\bin\Debug\TestZip.pdb
+D:\$代码\KindleHelper-master\KindleHelper-master\ZipLibary\TestZip\bin\Debug\Ionic.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\ZipLibary\TestZip\bin\Debug\Ionic.pdb
+D:\$代码\KindleHelper-master\KindleHelper-master\ZipLibary\TestZip\obj\Debug\TestZip.csprojResolveAssemblyReference.cache
+D:\$代码\KindleHelper-master\KindleHelper-master\ZipLibary\TestZip\obj\Debug\TestZip.exe
+D:\$代码\KindleHelper-master\KindleHelper-master\ZipLibary\TestZip\obj\Debug\TestZip.pdb

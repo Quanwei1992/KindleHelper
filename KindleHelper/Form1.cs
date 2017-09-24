@@ -14,7 +14,7 @@ namespace KindleHelper
     public partial class Form1 : Form
     {
         int a, b;
-        Class1 c;
+        GrapchHelper c;
         public Form1()
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace KindleHelper
         private void p(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            c = new Class1(g);
+            c = new GrapchHelper(g);
             c.Draw(b, a);
             g.Dispose();
         }
@@ -39,7 +39,7 @@ namespace KindleHelper
             a = Width;
             b = Height;
             Graphics g = Graphics.FromHwnd(Handle);
-            c = new Class1(g);
+            c = new GrapchHelper(g);
             c.Draw(b, a);
             g.Dispose();
             c.Dispose();

@@ -1,0 +1,17 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly KindleHelper.Plugin.Interface, Version=2.0.*, Culture=固定语言(固定国家/地区): 
+	hash=SHA1, flags=PublicKey
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Interface KindleHelper.Plugin.Interface.IPlugin: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    Show(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    ShowForm(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    ShowFormAsDialog(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    version(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getresult(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    run(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Watch(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    IsNotNeedToShowAsDialog(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract

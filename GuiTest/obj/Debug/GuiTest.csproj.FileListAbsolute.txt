@@ -1,0 +1,10 @@
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\test.jpg
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\GuiTest.exe.config
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\GuiTest.exe
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\GuiTest.pdb
+D:\$代码\KindleHelper-master\KindleHelper-master\GuiTest\obj\Debug\GuiTest.csprojResolveAssemblyReference.cache
+D:\$代码\KindleHelper-master\KindleHelper-master\GuiTest\obj\Debug\GuiTest.Form1.resources
+D:\$代码\KindleHelper-master\KindleHelper-master\GuiTest\obj\Debug\GuiTest.Properties.Resources.resources
+D:\$代码\KindleHelper-master\KindleHelper-master\GuiTest\obj\Debug\GuiTest.csproj.GenerateResource.Cache
+D:\$代码\KindleHelper-master\KindleHelper-master\GuiTest\obj\Debug\GuiTest.exe
+D:\$代码\KindleHelper-master\KindleHelper-master\GuiTest\obj\Debug\GuiTest.pdb

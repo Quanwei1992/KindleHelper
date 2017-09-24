@@ -1,0 +1,4 @@
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\AppConfigWriteLibrary.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\AppConfigWriteLibrary.pdb
+D:\$代码\KindleHelper-master\KindleHelper-master\AppConfigWriteLibrary\obj\Debug\AppConfigWriteLibrary.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\AppConfigWriteLibrary\obj\Debug\AppConfigWriteLibrary.pdb

@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
 
-namespace KindleHelper
+namespace KindleHelper.lib
 {
-    public class Kindlegen
+    /// <summary>
+    /// 生成电子书类，第一个核心类
+    /// </summary>
+    public class Kindlegen:IKindlegen
     {
 
         private static string tpl_cover;
@@ -19,7 +22,11 @@ namespace KindleHelper
         private static string tpl_toc;
         private static bool tplIsLoaded = false;
 
-
+        /// <summary>
+        /// 将下载的书转换为txt，外部可调用此方法获取txt文件
+        /// </summary>
+        /// <param name="book">书的对象</param>
+        /// <param name="savePath">保存路径</param>
         public static void Book2Txt(Book book,string savePath)
         {
             string txt = "";
@@ -35,7 +42,11 @@ namespace KindleHelper
             } 
             File.WriteAllText(savePath, txt);
         }
-
+        /// <summary>
+        /// 将下载的书转换为mobi，外部可调用此方法获取mobi文件
+        /// </summary>
+        /// <param name="book">书的对象</param>
+        /// <param name="savePath">保存路径</param>
         public static void Book2Mobi(Book book,string savePath)
         {
             LoadTemplates();
@@ -53,7 +64,10 @@ namespace KindleHelper
             gen(savePath);
         }
 
-
+        /// <summary>
+        /// 创建封面
+        /// </summary>
+        /// <param name="book">书对象</param>
         static void CreateCover(Book book)
         {
             string path = "./tmp/cover.html";
@@ -63,7 +77,10 @@ namespace KindleHelper
             File.WriteAllText(path, content);
         }
 
-
+        /// <summary>
+        /// 创建章节
+        /// </summary>
+        /// <param name="book">书对象</param>
         static void CreateChapters(Book book)
         {
             for (int i = 0; i < book.chapters.Length; i++) {
@@ -87,13 +104,19 @@ namespace KindleHelper
             }
 
         }
-
+        /// <summary>
+        /// 创建样式
+        /// </summary>
+        /// <param name="book">书对象</param>
         static void CreateStyle(Book book)
         {
             string path = "./tmp/style.css";
             File.WriteAllText(path,tpl_style);
         }
-
+        /// <summary>
+        /// 创建toc
+        /// </summary>
+        /// <param name="book">书对象</param>
         static void CreateBookToc(Book book)
         {
             string path = "./tmp/book-toc.html";
@@ -108,7 +131,10 @@ namespace KindleHelper
             content = content.Replace("___CONTENT___", tocContent);
             File.WriteAllText(path, content);
         }
-
+        /// <summary>
+        /// 创建下一个toc
+        /// </summary>
+        /// <param name="book">书对象</param>
         static void CreateNaxToc(Book book)
         {
             string path = "./tmp/toc.ncx";
@@ -126,7 +152,10 @@ namespace KindleHelper
             content = content.Replace("___NAV___", tocContent);
             File.WriteAllText(path, content);
         }
-
+        /// <summary>
+        /// 创建opf文件
+        /// </summary>
+        /// <param name="book"></param>
         static void CreateOpf(Book book) {
             string path = "./tmp/content.opf";
             string content = tpl_content;
@@ -151,7 +180,9 @@ namespace KindleHelper
             content = content.Replace("___SPINE___", spine);
             File.WriteAllText(path, content);
         }
-
+        /// <summary>
+        /// 加载模板
+        /// </summary>
         static void LoadTemplates()
         {
             if (tplIsLoaded) return;
@@ -163,7 +194,10 @@ namespace KindleHelper
             tpl_toc = File.ReadAllText("./tpls/tpl_toc.ncx");
             tplIsLoaded = true;
         }
-
+        /// <summary>
+        /// 生成
+        /// </summary>
+        /// <param name="savePath"></param>
         static void gen(string savePath)
         {
             string binPath = Directory.GetCurrentDirectory() + "/tools/kindlegen.exe";
@@ -183,6 +217,16 @@ namespace KindleHelper
                 File.Move("./tmp/book.mobi", savePath);
             }
             Directory.Delete("./tmp", true);
+        }
+
+        void IKindlegen.Book2Txt(Book book, string savePath)
+        {
+            Book2Txt(book, savePath);
+        }
+
+        void IKindlegen.Book2Mobi(Book book, string savePath)
+        {
+            Book2Mobi(book, savePath);
         }
     }
 }

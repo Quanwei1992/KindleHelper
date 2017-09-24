@@ -1,0 +1,5 @@
+D:\$代码\KindleHelper-master\KindleHelper-master\ZipLibary\Zip\bin\Debug\Ionic.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\ZipLibary\Zip\bin\Debug\Ionic.pdb
+D:\$代码\KindleHelper-master\KindleHelper-master\ZipLibary\Zip\obj\Debug\Ionic.csprojResolveAssemblyReference.cache
+D:\$代码\KindleHelper-master\KindleHelper-master\ZipLibary\Zip\obj\Debug\Ionic.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\ZipLibary\Zip\obj\Debug\Ionic.pdb

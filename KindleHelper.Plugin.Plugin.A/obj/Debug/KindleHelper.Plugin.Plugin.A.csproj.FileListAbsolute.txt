@@ -1,0 +1,7 @@
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\plugin\KindleHelper.Plugin.Plugin.A.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\Publish Version\plugin\KindleHelper.Plugin.Plugin.A.pdb
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Plugin.Plugin.A\obj\Debug\KindleHelper.Plugin.Plugin.A.csprojResolveAssemblyReference.cache
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Plugin.Plugin.A\obj\Debug\KindleHelper.Plugin.Plugin.A.Form1.resources
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Plugin.Plugin.A\obj\Debug\KindleHelper.Plugin.Plugin.A.csproj.GenerateResource.Cache
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Plugin.Plugin.A\obj\Debug\KindleHelper.Plugin.Plugin.A.dll
+D:\$代码\KindleHelper-master\KindleHelper-master\KindleHelper.Plugin.Plugin.A\obj\Debug\KindleHelper.Plugin.Plugin.A.pdb

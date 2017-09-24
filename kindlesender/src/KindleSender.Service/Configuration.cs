@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Configuration;
-using log4net;
+using loglibrary;
 
 namespace KindleSender.Service
 {
@@ -25,26 +25,9 @@ namespace KindleSender.Service
     }
   public class Configuration : Base,IConfiguration
   {
-    private static readonly ILog Log = LogManager.GetLogger(typeof(FolderWatcher));
-
-    //public string FolderPath { get; set; }
-
-    //public string FileFilter { get; set; }
-
-    //public string KindleMail { get; set; }
-
-    //public int SmtpPort { get; set; }
-
-    //public string SmtpServer { get; set; }
-
-    //public string SmtpUserName { get; set; }
-
-    //public string SmtpPassword { get; set; }
-
-
     public override void Load()
     {
-      Log.Info("Loading configuration ... ");
+        LogHelper.Info("Loading configuration ... ");
 
       try
       {
@@ -57,11 +40,15 @@ namespace KindleSender.Service
         SmtpUserName = ConfigurationManager.AppSettings["SmtpUserName"];
         SmtpPassword = ConfigurationManager.AppSettings["SmtpPassword"];
 
-        Log.Info("Configuration loaded.");
+        LogHelper.Info("Configuration loaded.");
       }
       catch (Exception e)
       {
-        Log.Error(e.Message);
+          LogHelper.Error(e.Message);
+      }
+      finally
+      {
+          LogHelper.Flush();
       }
     }
     }

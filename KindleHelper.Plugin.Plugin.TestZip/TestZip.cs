@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using KindleHelper.Plugin.Interface;
 using Ionic.Zip;
-namespace KindleHelper.Plugin.Plugin.TestZip
+namespace KindleHelper.Plugin.Plugin.TestZip//比较特殊，既可以作为插件也可以单独运行
 {
     class Program
     {

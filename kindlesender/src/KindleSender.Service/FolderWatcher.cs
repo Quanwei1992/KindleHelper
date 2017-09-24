@@ -1,14 +1,15 @@
-﻿using System;
+﻿using loglibrary;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
-using log4net;
+
 
 namespace KindleSender.Service
 {
   public class FolderWatcher : IFolderWatcher, IDisposable
   {
-    private static readonly ILog Log = LogManager.GetLogger(typeof(FolderWatcher));
+  
 
     private readonly IConfiguration _configuration;
 
@@ -48,7 +49,7 @@ namespace KindleSender.Service
       if (!Directory.Exists(_configuration.FolderPath))
       {
         Directory.CreateDirectory(_configuration.FolderPath);
-        Log.Info("Created directory: " + _configuration.FolderPath);
+        LogHelper.Info("Created directory: " + _configuration.FolderPath);
       }
 
       _fileSystemWatcher = new FileSystemWatcher
@@ -60,13 +61,15 @@ namespace KindleSender.Service
 
       _fileSystemWatcher.Created += OnFileCreated;
 
-      Log.Info("Watching folder: " + _fileSystemWatcher.Path);
+      LogHelper.Info("Watching folder: " + _fileSystemWatcher.Path);
+      LogHelper.Flush();
     }
 
     private void OnFileCreated(object sender, FileSystemEventArgs e)
     {
-      Log.Info("New file found: " + e.FullPath);
+      LogHelper.Info("New file found: " + e.FullPath);
       _fileSender.Send(e.FullPath);
+      LogHelper.Flush();
     }
 
     public void Dispose()

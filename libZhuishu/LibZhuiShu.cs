@@ -10,7 +10,7 @@ namespace libZhuishu
     public class LibZhuiShu
     {
         /// <summary>
-        /// 搜索小说
+        /// 搜索小说（贪婪式）
         /// </summary>
         /// <param name="query">关键词</param>
         /// <param name="start">结果开始Index</param>
@@ -103,7 +103,11 @@ namespace libZhuishu
             }
             return null;
         }
-
+        /// <summary>
+        /// 自动完成
+        /// </summary>
+        /// <param name="query">关键词</param>
+        /// <returns></returns>
         public static string[] autoComplate(string query)
         {
             string[] words = new string[0];

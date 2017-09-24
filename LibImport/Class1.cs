@@ -9,11 +9,18 @@ namespace LibImport
 {
     public class Class1
     {
-        public string path { get { return Environment.CurrentDirectory + "\\config.xml"; } }
+        /// <summary>
+        /// 文件路径
+        /// </summary>
+        public string Path { get { return Environment.CurrentDirectory + "\\config.xml"; } }
+        /// <summary>
+        /// 读取文件
+        /// </summary>
+        /// <returns></returns>
         public string Read()
         {
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(path);
+            xmlDoc.Load(Path);
             XmlNode xn = xmlDoc.SelectSingleNode("books");
             XmlNodeList xnl = xn.ChildNodes;
             foreach (XmlNode xnf in xnl)
@@ -28,9 +35,12 @@ namespace LibImport
             }
             return null;
         }
-        public void Creat()
+        /// <summary>
+        /// 创建并写入文件
+        /// </summary>
+        public void CreatAndWriteFile()
         {
-            XmlTextWriter writer = new XmlTextWriter(path, null);
+            XmlTextWriter writer = new XmlTextWriter(Path, null);
             //使用自动缩进便于阅读
             writer.WriteStartDocument();
             writer.Formatting = Formatting.Indented;
