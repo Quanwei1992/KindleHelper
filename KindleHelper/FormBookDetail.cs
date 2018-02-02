@@ -60,7 +60,20 @@ namespace KindleHelper
 
             mMixToc = LibZhuiShu.getMixToc(mBook._id);
             mTocs = LibZhuiShu.getTocSummary(mBook._id);
-            changeToc(-1);
+            if(mMixToc!=null)
+            {
+                changeToc(-1);
+            }
+            else if(mTocs!=null && mTocs.Length > 0)
+            {
+                changeToc(0);
+            }
+            else
+            {
+                MessageBox.Show("无可用的书源!");
+                return;
+            }
+            
             this.Show();
 
         }
